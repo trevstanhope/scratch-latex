@@ -1,0 +1,42 @@
+% Tukey plot
+% Author: Sivaram Neelakantan
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows,backgrounds,snakes}
+\usepackage{verbatim}
+
+\begin{comment}
+:Title: Box and whisker plot
+:Tags: Plots, Axes, Snakes, Charts
+
+A beautiful `box and whisker plot`_, also known as a tukey plot. Note the smart use of snakes to create ticks on the horizontal axis.
+
+.. _box and whisker plot: http://en.wikipedia.org/wiki/Box_plot
+
+Update: Corrected attribution.
+
+| Author: Sivaram Neelakantan
+\end{comment}
+
+\begin{document}
+
+\begin{tikzpicture}[thick, framed]
+
+    \draw (3,0.25) -- (3,0.75);% draw the median
+    \draw (4,0.5) -- (7,0.5);% draw right whisker
+    \draw (4,0.5) -- (1,0.5);% draw left whisker
+    \draw (7,0.39) -- (7,0.61);% draw vertical tab
+    \draw (1,0.39) -- (1,0.61);% draw vertical tab
+    \node[below] at (-5,0.7) {CV $<$10 cm}; % extreme outlier on the left
+    
+    % Title
+    \draw (3,2) node[above,xshift=0.7cm]{$ \textsc{Box and Whisker
+        Plot}$};%
+    % Axis
+    \draw (-3,-2) -- (11,-2);
+    % Note that the snaked line is drawn to 11.1 to force
+    % TikZ to draw the final tick.
+    \draw[snake=ticks,segment length=1cm] (-3,-2) -- (11.1,-2);
+\end{tikzpicture}
+
+\end{document} 

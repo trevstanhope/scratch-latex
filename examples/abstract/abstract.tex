@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{lipsum}
+\usepackage{authblk}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{fancyhdr}
+%
+\pagestyle{fancy}
+%
+\renewenvironment{abstract}{%
+\hfill\begin{minipage}{0.95\textwidth}
+\rule{\textwidth}{1pt}}
+{\par\noindent\rule{\textwidth}{1pt}\end{minipage}}
+%
+\makeatletter
+\renewcommand\@maketitle{%
+\hfill
+\begin{minipage}{0.95\textwidth}
+\vskip 2em
+\let\footnote\thanks 
+{\LARGE \@title \par }
+\vskip 1.5em
+{\large \@author \par}
+\end{minipage}
+\vskip 1em \par
+}
+\makeatother
+%
+\begin{document}
+%
+%title and author details
+\title{This is the title for my work}
+\author[1]{Name1}
+\author[2]{Name2}
+\affil[1]{Address of author}
+\affil[2]{Address of second author}
+%
+\maketitle
+%
+\begin{abstract}
+\lipsum[1]
+\end{abstract}
+\section{section}
+\lipsum
+\end{document}
